@@ -1,0 +1,8 @@
+DELIMITER //
+CREATE PROCEDURE start_service_card(IN id INT, IN dateTime DATETIME)
+BEGIN
+UPDATE card
+SET card_start = dateTime
+WHERE card_id = id;
+END //
+DELIMITER ;

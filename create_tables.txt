@@ -1,0 +1,11 @@
+CREATE TABLE client(client_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, client_lname VARCHAR(20), client_fname VARCHAR(20), client_balance DECIMAL(6,2), client_address VARCHAR(50));
+
+CREATE TABLE pet(pet_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, pet_type VARCHAR(20), pet_name VARCHAR(20), client_id INT, FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE);
+
+CREATE TABLE service(service_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, service_type varchar(20), service_price DECIMAL(6,2));
+
+CREATE TABLE card(card_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, card_start DATETIME, card_end DATETIME, card_length DATETIME, client_id INT, FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE);
+
+CREATE TABLE employee(emp_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, emp_lname VARCHAR(20), emp_fname VARCHAR(20));
+
+CREATE TABLE request(req_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, req_date DATE, client_id INT, service_id INT, emp_id INT, card_id INT, FOREIGN KEY (client_id) REFERENCES client(client_id) ON DELETE CASCADE, FOREIGN KEY (service_id) REFERENCES service(service_id) ON DELETE CASCADE, FOREIGN KEY (emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE, FOREIGN KEY (card_id) REFERENCES card(card_id) ON DELETE CASCADE);

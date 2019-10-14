@@ -1,0 +1,11 @@
+DELIMITER //
+CREATE PROCEDURE end_service_card(IN id INT, IN dateTime DATETIME)
+BEGIN
+UPDATE card
+SET card_end = dateTime
+WHERE card_id = id;
+UPDATE card
+SET card_length = TIMEDIFF(card_end, card_start)
+WHERE card_id = id;
+END //
+DELIMITER ;

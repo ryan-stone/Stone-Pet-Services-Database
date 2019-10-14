@@ -1,0 +1,2 @@
+CREATE DATABASE stone_pet_services;
+USE stone_pet_services;

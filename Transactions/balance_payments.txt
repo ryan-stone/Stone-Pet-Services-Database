@@ -1,0 +1,5 @@
+START TRANSACTION;
+SELECT * FROM client;
+CALL client_pay_balance(3, 15.00);
+CALL client_pay_balance(4, 20.00);
+COMMIT;

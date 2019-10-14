@@ -1,0 +1,8 @@
+DELIMITER //
+CREATE PROCEDURE card_history(IN clientLname VARCHAR(20))
+BEGIN
+SELECT card_start, card_end, card_length
+FROM card
+WHERE client_id = (SELECT client_id FROM client WHERE client_lname = clientLname);
+END //
+DELIMITER ;

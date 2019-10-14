@@ -1,0 +1,6 @@
+START TRANSACTION;
+INSERT INTO client
+VALUES (0, 'Becker', 'Kimberly', 0.00, '4342 Yorktown Blvd.');
+INSERT INTO client
+VALUES (0, 'Smith', 'Cynthia', 0.00, '1234 Water St.');
+COMMIT;

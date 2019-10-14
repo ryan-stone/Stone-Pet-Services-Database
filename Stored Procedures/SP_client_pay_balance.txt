@@ -1,0 +1,8 @@
+DELIMITER //
+CREATE PROCEDURE client_pay_balance(IN id INT, IN payment DECIMAL(6,4))
+BEGIN
+UPDATE client
+SET client_balance = client_balance - payment
+WHERE client_id = id;
+END //
+DELIMITER ;

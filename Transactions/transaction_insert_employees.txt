@@ -1,0 +1,6 @@
+START TRANSACTION;
+INSERT INTO employee
+VALUES(0, 'Stone', 'Ryan');
+INSERT INTO employee
+VALUES(0, 'Stone', 'Michaela');
+COMMIT;

@@ -1,0 +1,14 @@
+DELIMITER //
+CREATE PROCEDURE create_request(IN requestDate DATE, IN clientLname VARCHAR(20), IN serviceType VARCHAR(20))
+BEGIN
+DECLARE rand_employee INT DEFAULT 1;
+SET rand_employee = (FLOOR(RAND()*2+1));
+INSERT INTO card(card_id, client_id)
+VALUES(0, (SELECT client_id FROM client WHERE client_lname = clientLname));
+INSERT INTO request
+VALUES (0, DATE(requestDate), (SELECT client_id FROM client WHERE client_lname = clientLname), (SELECT service_id FROM service WHERE service_type = serviceType), rand_employee, (SELECT MAX(card_id) FROM card));
+UPDATE client 
+SET client_balance = client_balance + (SELECT service_price FROM service WHERE service_type = serviceTYPE)
+WHERE client_lname = clientLname;
+END //
+DELIMITER ;

@@ -1,0 +1,6 @@
+START TRANSACTION;
+SELECT * FROM card;
+CALL start_service_card(3, SYSDATE());
+CALL end_service_card(3, SYSDATE());
+SELECT * FROM card;
+COMMIT;

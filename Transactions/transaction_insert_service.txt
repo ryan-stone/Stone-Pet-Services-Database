@@ -1,0 +1,8 @@
+START TRANSACTION;
+INSERT INTO service
+VALUES(0, 'Dog Walk', 15.00);
+INSERT INTO service
+VALUES(0, 'Drop In', 15.00);
+INSERT INTO service
+VALUES(0, 'Overnight', 45.00);
+COMMIT;

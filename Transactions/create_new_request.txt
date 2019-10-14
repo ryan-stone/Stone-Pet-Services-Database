@@ -1,0 +1,9 @@
+START TRANSACTION;
+CALL create_request('2019-05-11', 'Becker', 'Dog Walk');
+SELECT * FROM request;
+COMMIT;
+
+START TRANSACTION;
+CALL create_request('2019-04-30', 'Smith', 'Dog Walk');
+SELECT * FROM request;
+COMMIT;

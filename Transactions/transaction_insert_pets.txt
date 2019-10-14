@@ -1,0 +1,12 @@
+START TRANSACTION;
+INSERT INTO pet
+VALUES(0, 'Dog', 'Emmy Louise', (SELECT client_id FROM client WHERE client_fname = 'Cynthia'));
+INSERT INTO pet
+VALUES(0, 'Dog', 'Daphne', (SELECT client_id FROM client WHERE client_fname = 'Kimberly'));
+INSERT INTO pet
+VALUES(0, 'Dog', 'Lily', (SELECT client_id FROM client WHERE client_fname = 'Kimberly'));
+INSERT INTO pet
+VALUES(0, 'Cat', 'Stormy', (SELECT client_id FROM client WHERE client_fname = 'Kimberly'));
+INSERT INTO pet
+VALUES(0, 'Cat', 'Bailey', (SELECT client_id FROM client WHERE client_fname = 'Kimberly'));
+COMMIT;
